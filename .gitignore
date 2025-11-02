@@ -128,4 +128,29 @@ gradle-app.setting
 # Java heap dump
 *.hprof
 
+### Node / Frontend ###
+# Dependencies
+frontend/node_modules/
+
+# Build outputs
+frontend/dist/
+frontend/dist-ssr/
+frontend/build/
+
+# Logs
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+
+# Environment variables
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Cache
+frontend/.vite/
+
 # End of https://www.toptal.com/developers/gitignore/api/intellij,gradle,java
