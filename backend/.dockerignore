@@ -1,0 +1,11 @@
+.gradle
+build
+out
+*.iml
+*.ipr
+*.iws
+.idea
+.vscode
+!.mvn/wrapper/maven-wrapper.jar
+!.gradle/wrapper/gradle-wrapper.jar
+
