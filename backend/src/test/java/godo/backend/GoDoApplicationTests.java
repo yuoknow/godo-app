@@ -5,9 +5,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class GoDoApplicationTests {
-
     @Test
-    void contextLoads() {
-    }
-
+    void contextLoads() {}
 }
