@@ -15,25 +15,6 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-    restart: unless-stopped
-
-  backend:
-    build:
-      context: ./backend
-    container_name: godo-backend
-    environment:
-      DB_HOST: db
-      DB_PORT: 5432
-      DB_NAME: ${DB_NAME:-godo}
-      DB_USER: ${DB_USER:-godo}
-      DB_PASSWORD: ${DB_PASSWORD:-godo}
-    depends_on:
-      db:
-        condition: service_healthy
-    ports:
-      - "8080:8080"
-    restart: unless-stopped
-
 volumes:
   pgdata:
 
