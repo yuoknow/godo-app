@@ -2,12 +2,17 @@
 
 ## Локальный запуск через Docker Compose
 
-1. Убедитесь, что установлены `Docker` и `Docker Compose`.
-2. Выполните сборку и запуск сервисов:
+1. Убедитесь, что установлены `Docker` (включает `docker compose`) и Java 21.
+2. Поднимите базу данных:
    ```bash
-   docker compose up --build
+   docker compose up -d
    ```
-3. Backend будет доступен по адресу `http://localhost:8080`, база данных PostgreSQL — на порту `5432`.
+3. Запустите backend:
+   ```bash
+   cd backend
+   ./gradlew bootRun
+   ```
+4. Приложение доступно по адресу `http://localhost:8080`, база данных PostgreSQL — на порту `5432`.
 
 ### Переменные окружения
 
@@ -17,7 +22,7 @@
 export DB_NAME=mydb
 export DB_USER=myuser
 export DB_PASSWORD=secret
-docker compose up --build
+docker compose up -d
 ```
 
 Все переменные необязательные, значения по умолчанию: `godo / godo / godo`.
