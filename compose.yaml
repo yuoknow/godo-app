@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: godo-postgres
+    environment:
+      POSTGRES_DB: ${DB_NAME:-godo}
+      POSTGRES_USER: ${DB_USER:-godo}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-godo}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-godo} -d ${DB_NAME:-godo}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+volumes:
+  pgdata:
+

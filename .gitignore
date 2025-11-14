@@ -153,4 +153,4 @@ frontend/.env.production.local
 # Cache
 frontend/.vite/
 
-# End of https://www.toptal.com/developers/gitignore/api/intellij,gradle,java
+.vscode/settings.json

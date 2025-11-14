@@ -1,3 +1,12 @@
 spring:
   application:
     name: godo-app
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:godo}
+    username: ${DB_USER:godo}
+    password: ${DB_PASSWORD:godo}
+    driver-class-name: org.postgresql.Driver
+  sql:
+    init:
+      mode: always
+      continue-on-error: true
