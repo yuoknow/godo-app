@@ -1,4 +1,4 @@
-name: Название
+name: Build and test
 
 on:
   push:
@@ -6,9 +6,21 @@ on:
     branches: [ main ]
 
 jobs:
-  privet-tests:
-
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Check code formatting
+        run: ./gradlew spotlessCheck
+
+      - name: Run tests
+        run: ./gradlew test
