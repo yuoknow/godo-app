@@ -184,7 +184,13 @@ class MasterClassControllerTest {
         @ValueSource(strings = {"   "})
         @DisplayName("Should return bad request when title is blank or whitespace")
         void shouldReturnBadRequestWhenTitleIsInvalid(String invalidTitle) throws Exception {
-            String titleJson = invalidTitle == null ? "null" : "\"" + invalidTitle.replace("\"", "\\\"").replace("\n", "\\n").replace("\t", "\\t") + "\"";
+            String titleJson = invalidTitle == null
+                    ? "null"
+                    : "\""
+                            + invalidTitle
+                                    .replace("\"", "\\\"")
+                                    .replace("\n", "\\n")
+                                    .replace("\t", "\\t") + "\"";
             String json = String.format(
                     "{\"title\":%s,\"description\":\"Описание\",\"instructor\":\"Инструктор\",\"durationMinutes\":120,\"price\":5000.00}",
                     titleJson);
