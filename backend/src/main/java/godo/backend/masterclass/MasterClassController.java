@@ -1,6 +1,5 @@
 package godo.backend.masterclass;
 
-import jakarta.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +25,7 @@ public class MasterClassController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public MasterClass createMasterClass(@Valid @RequestBody MasterClass masterClass) {
+    public MasterClass createMasterClass(@RequestBody MasterClass masterClass) {
         masterClass.setCreatedAt(LocalDateTime.now());
         return repository.save(masterClass);
     }
